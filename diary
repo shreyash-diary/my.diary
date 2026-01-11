@@ -1,9 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link rel="icon" href="favicon.png?v=1">
-
-
  <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -56,101 +53,7 @@ body {
 } 
 </style>
 </head>
-<script>
-  document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-  });
-
-  document.addEventListener('selectstart', function (e) {
-    e.preventDefault();
-  });
-
-  document.addEventListener('dragstart', function (e) {
-    e.preventDefault();
-  });
-</script>
-
-<body>
-
-<div id="password-gate" style="margin-top:180px; display:flex; justify-content:center;">
-  <div style="
-    width:360px;
-    border:2px solid #000;
-    border-radius:12px;
-    padding:24px;
-    background:#fff;
-    text-align:center;
-  ">
-    <h2 style="color:#1E5BFF;">INX – Internal Access</h2>
-    <p>This document is shared only with contributors and mentors.</p>
-
-    <input
-      type="password"
-      id="password-input"
-      placeholder="Enter access password"
-      autofocus
-      onkeydown="if(event.key==='Enter') checkPassword();"
-      style="
-        width:90%;
-        height:44px;
-        margin-bottom:12px;
-        padding:0 12px;
-        border-radius:8px;
-        border:1px solid #000;
-        caret-color:#000;
-      "
-    />
-
-    <button
-      onclick="checkPassword()"
-      style="
-        width:60%;
-        height:44px;
-        border-radius:8px;
-        border:1px solid #000;
-        background:#fff;
-        font-weight:600;
-        cursor:pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      "
-    >
-      Access Document
-    </button>
-<style>
-    button:hover {
-        background: #f0f0f0;                   /* Light gray on hover */
-        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-        transform: translateY(-2px);           /* Slight lift */
-    }
-    button:active {
-        transform: translateY(2px);            /* Press down effect */
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-</style>
-    <p id="error-msg" style="color:red; margin-top:12px; display:none;">
-      Incorrect password. Please try again.
-    </p>
-  </div>
-</div>
-
-<div id="loading-screen" style="
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100vw;
-  height:100vh;
-  background:#FFFFFF;
-  color:#000000;
-  font-family:Arial, sans-serif;
-  font-size:18px;
-  z-index:9999;
-  align-items:center;
-  justify-content:center;
-">
-  Please wait …
-</div>
+<body> 
 
 <div id="protected-content" style="display:none;">
   <main class="container">
@@ -419,29 +322,5 @@ body {
     </footer>
   </main>
 </div>
-<script>
-const PASSWORD = "inx";
-
-function checkPassword() {
-  const input = document.getElementById("password-input").value;
-  const error = document.getElementById("error-msg");
-  const gate = document.getElementById("password-gate");
-  const loader = document.getElementById("loading-screen");
-  const content = document.getElementById("protected-content");
-
-  if (input === PASSWORD) {
-    error.style.display = "none";
-    gate.style.display = "none";
-    loader.style.display = "flex";
-
-    setTimeout(() => {
-      loader.style.display = "none";
-      content.style.display = "block";
-    }, 700);
-  } else {
-    error.style.display = "block";
-  }
-}
-</script>
 </body>
 </html>
